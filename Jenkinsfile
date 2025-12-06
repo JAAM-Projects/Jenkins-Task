@@ -12,7 +12,7 @@ pipeline{
                     url: 'https://github.com/JAAM-Projects/Jenkins-Task.git'
             }
         }
-        stage('Vuild'){
+        stage('Build'){
             steps{
                 sh 'mvn clean compile'
             }
