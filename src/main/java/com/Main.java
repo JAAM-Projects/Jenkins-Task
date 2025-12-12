@@ -1,17 +1,46 @@
 package com;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome! \n");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Calculator calculator = new Calculator();
+        System.out.printf("welcome! \n");
+        int choice;
+        System.out.println("Choose:\n 1 for summation\n 2 for subtraction\n 3 for multiplication\n 4 for division ");
+        while (true)
+        {
+            System.out.println("Please enter your choice: ");
+            Scanner scanner = new Scanner(System.in);
+            choice = scanner.nextInt();
+            System.out.println("Enter the first number: ");
+            int firstNumber = scanner.nextInt();
+            System.out.println("Enter the second number: ");
+            int secondNumber = scanner.nextInt();
+            switch (choice)
+            {
+                case 1:
+                    System.out.println(calculator.add(firstNumber, secondNumber));
+                    break;
+                case 2:
+                    System.out.println(calculator.sub(firstNumber, secondNumber));
+                    break;
+                case 3:
+                    System.out.println(calculator.mul(firstNumber, secondNumber));
+                    break;
+                case 4:
+                    System.out.println(calculator.div(firstNumber, secondNumber));
+                    break;
+                default:
+                    System.out.println("Please choose a valid choice ");
+                    break;
+            }
+            System.out.println("Try again? (y/n)");
+            String answer = scanner.next();
+            if(answer.equals("n")) {
+                System.out.println("Goodbye!");
+                break;
+            }
         }
     }
 }
